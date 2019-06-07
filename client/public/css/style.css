@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #282F44;
+    color: #BA2C73;
+}
+
+
+body { 
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "nav article input"
+    "footer footer footer";
+  grid-template-rows: 80px 1fr 70px;  
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  height: 100vh;
+  margin: 0;
+  }  
+
+  
+
+#pageHeader {
+  grid-area: header;
+  }
+#pageFooter {
+  grid-area: footer;
+  }
+#mainArticle { 
+  grid-area: article;      
+  }
+#mainNav { 
+  grid-area: nav; 
+  }
+#vendInput { 
+  grid-area: input; 
+  } 
+
+ header, footer, article, div {
+
+    display: flex;
+    align-items: center;
+     justify-content: center;
+
+}
+
+/* Stack the layout on small devices/viewports. */
+/* @media all and (max-width: 575px) {
+  body { 
+    grid-template-areas: 
+      "header"
+      "article"
+      "ads"
+      "nav"
+      "footer";
+    grid-template-rows: 80px 1fr 70px 1fr 70px;  
+    grid-template-columns: 1fr;
+ } */
+
+ #vendInput{
+     display: grid;
+     grid-template-rows: 1fr 2fr;
+ }
+
+ #grid {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+#grid > div {
+  background-color:  #BA2C73;
+  color: white;
+  font-size: 4vw;
+  padding: 10px;
+}
+
+
+/* functionality  - drag dro*/
+
+.fill{
+    background-image: url('../images/dollar.png');
+    position: relative;
+    height: 64px;
+    width: 64px;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+}
+
+.fillfive{
+    background-image: url('../images/dollar.png');
+    position: relative;
+    height: 64px;
+    width: 64px;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+}
+
+.empty{
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+    background-color: #282F44;
+}
+
+.vending-machine{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border-radius: 32px;
+}
+
+.hold{
+    background-color: rgba(210, 105, 30, 0);
+}
+
+.hover{
+    background-color: burlywood;
+}
+
+.invisible{
+    display: none;
+}
+
