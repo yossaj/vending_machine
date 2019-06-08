@@ -1,0 +1,24 @@
+{
+  "name": "vendingmachine",
+  "version": "1.0.0",
+  "description": "Vending Machine",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yossaj/vending_machine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yossaj/vending_machine/issues"
+  },
+  "homepage": "https://github.com/yossaj/vending_machine#readme",
+  "devDependencies": {
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.3"
+  }
+}

@@ -8,6 +8,10 @@ body {
     color: #BA2C73;
 }
 
+h1 {
+    font-family: futura;
+}
+
 
 body { 
   display: grid;
