@@ -26,11 +26,21 @@ describe('VendingMachine', function () {
     const actual = vendingMachine.balance;
     assert.deepStrictEqual(actual, 5)
   })
-  //
-  // it('should be able to return current coins', function () {
-  //   vendingMachine.insertCoin(coin1);
-  //   vendingMachine.insertCoin(coin2);
-  //   vendingMachine.insertCoin(coin3);
-  //   assert.deepStrictEqual(vendingMachine.returnCoins, [{type: 'nickel', value: 5}, {type: 'dime', value: 10}, {type: 'quarter', value: 25}])
-  // })
+
+  it('should be able to return current coins', function () {
+    vendingMachine.insertCoin(coin1);
+    vendingMachine.insertCoin(coin2);
+    vendingMachine.insertCoin(coin3);
+    const actual = vendingMachine.returnCoins();
+    assert.deepStrictEqual(actual, [{type: 'nickel', value: 5}, {type: 'dime', value: 10}, {type: 'quarter', value: 25}])
+  })
+
+  it('should be empty of coins when coins have been returned', function () {
+    vendingMachine.insertCoin(coin1);
+    vendingMachine.insertCoin(coin2);
+    vendingMachine.insertCoin(coin3);
+    vendingMachine.returnCoins();
+    const actual = vendingMachine.currentCoins
+    assert.deepStrictEqual(actual, []);
+  })
 });
