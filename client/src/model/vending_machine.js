@@ -1,4 +1,5 @@
 const VendingMachine = function () {
+  this.items = []
   this.allCoins = [];
   this.currentCoins = [];
   this.balance = 0;
@@ -21,6 +22,15 @@ VendingMachine.prototype.returnCoins = function () {
   const coins = this.currentCoins;
   this.currentCoins = [];
   return coins;
+};
+
+VendingMachine.prototype.itemExists = function (inputCode) {
+  for (const item of this.items) {
+    if (item.code === inputCode) {
+      return true
+    }
+  }
+  return false
 };
 
 module.exports = VendingMachine;

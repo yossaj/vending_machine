@@ -11,6 +11,9 @@ describe('VendingMachine', function () {
     coin4 = {type: 'half dollar', value: 50};
     coin5 = {type: 'dollar', value: 50};
 
+    item1 = {code: 'a7', price: 75}
+    item2 = {code: 'f3', price: 50}
+
     vendingMachine = new VendingMachine ();
 
   })
@@ -43,4 +46,40 @@ describe('VendingMachine', function () {
     const actual = vendingMachine.currentCoins
     assert.deepStrictEqual(actual, []);
   })
+
+  it('should be able to check if an item exists __true', function () {
+    vendingMachine.items.push(item1);
+    const actual = vendingMachine.itemExists('a7');
+    assert.deepStrictEqual(actual, true)
+  })
+
+  it('should be able to check if an item exists __false', function () {
+    vendingMachine.items.push(item1);
+    const actual = vendingMachine.itemExists('b2');
+    assert.deepStrictEqual(actual, false)
+  })
+
+  // it('should be able to return a messege informing the user that an item does not exist', function () {
+  //
+  // })
+  //
+  // it('should be able to return an items value', function () {
+  //
+  // })
+  //
+  // it('should be able to vend item if correct amount is inserted', function () {
+  //
+  // })
+  //
+  // it('should add current coins to all coins if vend is successful', function () {
+  //
+  // })
+  //
+  // it('should return appropriate change if change is needed', function () {
+  //
+  // })
+  //
+  // it('should be able to return a message if item amount is not met while trying to vend', function () {
+  //
+  // })
 });
