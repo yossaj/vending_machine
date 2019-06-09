@@ -59,9 +59,11 @@ describe('VendingMachine', function () {
     assert.deepStrictEqual(actual, false)
   })
 
-  // it('should be able to return a messege informing the user that an item does not exist', function () {
-  //
-  // })
+  it('should be able to return a messege informing the user that an item does not exist', function () {
+    vendingMachine.items.push(item1);
+    const actual = vendingMachine.vendItem('b3')
+    assert.deepStrictEqual(actual, 'item not found. please select another item')
+  })
   //
   // it('should be able to return an items value', function () {
   //

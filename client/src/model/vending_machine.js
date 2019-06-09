@@ -10,6 +10,11 @@ VendingMachine.prototype.insertCoin = function (coin) {
   this.addCoinValue(coin);
 };
 
+VendingMachine.prototype.vendItem = function (inputCode) {
+  if (!this.itemExists(inputCode)) {
+    return 'item not found. please select another item'
+  }
+};
 VendingMachine.prototype.addCoin = function (coin) {
   this.currentCoins.push(coin);
 };
@@ -32,5 +37,7 @@ VendingMachine.prototype.itemExists = function (inputCode) {
   }
   return false
 };
+
+
 
 module.exports = VendingMachine;
