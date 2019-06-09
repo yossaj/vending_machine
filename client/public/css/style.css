@@ -9,7 +9,8 @@ body {
 }
 
 h1 {
-    font-family: futura;
+    font-family: 'VT323', monospace;
+    font-size: 3rem;
 }
 
 
@@ -25,6 +26,7 @@ body {
   grid-column-gap: 10px;
   height: 100vh;
   margin: 0;
+  font-family: 'VT323', monospace;
   }  
 
   
@@ -167,8 +169,60 @@ top: 4px;
 .vending-machine{
     height: 100%;
     width: 100%;
-    background-color: white;
-    border-radius: 32px;
+  background-color: white;
+  border-radius: 32px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2px;
+}
+
+.vendingdetails{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vendingItem1{
+  background-image: url(../images/soft-drink.png);
+  height: 64px;
+  width: 64px;
+}
+
+.vendingItem2{
+  background-image: url(../images/pint-of-beer.png);
+  height: 64px;
+  width: 64px;
+}
+
+.vendingItem3{
+  background-image: url(../images/pizza.png);
+  height: 64px;
+  width: 64px;
+}
+
+.vendingItem4{
+  background-image: url(../images/moustache.png);
+  height: 64px;
+  width: 64px;
+}
+
+.vendingItem5{
+  background-image: url(../images/present.png);
+  height: 64px;
+  width: 64px;
+}
+
+.vendingItem6{
+  background-image: url(../images/trumpet.png);
+  height: 64px;
+  width: 64px;
+}
+
+.vendingItem7{
+  background-image: url(../images/vinyl.png);
+  height: 64px;
+  width: 64px;
 }
 
 .hold{
