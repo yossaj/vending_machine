@@ -3,6 +3,7 @@ const VendingMachine = function () {
   this.allCoins = [];
   this.currentCoins = [];
   this.balance = 0;
+  this.vendingState = 'item select'
 };
 
 VendingMachine.prototype.insertCoin = function (coin) {
@@ -11,9 +12,11 @@ VendingMachine.prototype.insertCoin = function (coin) {
 };
 
 VendingMachine.prototype.vendItem = function (itemCode) {
-  if (!this.itemExists(itemCode)) {
+  // functions will be added here as logic builds up
+  while (!this.itemExists(itemCode)) {
     return 'item not found. please select another item'
   }
+
 };
 VendingMachine.prototype.addCoin = function (coin) {
   this.currentCoins.push(coin);
@@ -38,11 +41,20 @@ VendingMachine.prototype.itemExists = function (itemCode) {
   return false
 };
 
-VendingMachine.prototype.returnItemPrice = function (itemCode) {
+VendingMachine.prototype.itemPrice = function (itemCode) {
   for (const item of this.items) {
     if (item.code === itemCode) {
       return item.price
     }
+  }
+};
+
+VendingMachine.prototype.itemPriceMet = function (itemCode) {
+  itemPrice = this.itemPrice(itemCode)
+  if (this.balance >= itemPrice) {
+    return true;
+  } else {
+    return false;
   }
 };
 module.exports = VendingMachine;
