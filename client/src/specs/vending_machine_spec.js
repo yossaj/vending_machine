@@ -21,10 +21,11 @@ describe('VendingMachine', function () {
     assert.deepStrictEqual(actual,[{type: 'nickel', value: 5}])
   })
 
-  // it('should be able to add coin value to current balance', function () {
-  //   vendingMachine.insertCoin(coin1)
-  //   assert.deepStrictEqual(vendingMachine.balance, 5)
-  // })
+  it('should be able to add coin value to current balance', function () {
+    vendingMachine.insertCoin(coin1)
+    const actual = vendingMachine.balance;
+    assert.deepStrictEqual(actual, 5)
+  })
   //
   // it('should be able to return current coins', function () {
   //   vendingMachine.insertCoin(coin1);
