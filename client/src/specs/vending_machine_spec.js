@@ -86,11 +86,13 @@ describe('VendingMachine', function () {
     assert.deepStrictEqual(actual, false)
   })
 
-  // it('should be able to vend item if correct amount is inserted and item exists', function () {
-  //   vendingMachine.items.push(item1);
-  //   const actual = vendingMachine.vendItem('a7')
-  //   assert.deepStrictEqual(actual, true)
-  // })
+  it('should be able to vend item if correct amount is inserted and item exists', function () {
+    vendingMachine.items.push(item1);
+    vendingMachine.insertCoin(coin4);
+    vendingMachine.insertCoin(coin3);
+    const actual = vendingMachine.vendItem('a7')
+    assert.deepStrictEqual(actual, true)
+  })
   //
   // it('should add current coins to all coins if vend is successful', function () {
   //

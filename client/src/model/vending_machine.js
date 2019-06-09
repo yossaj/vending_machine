@@ -17,6 +17,14 @@ VendingMachine.prototype.vendItem = function (itemCode) {
     return 'item not found. please select another item'
   }
 
+  if (this.itemExists(itemCode) && this.itemPriceMet(itemCode)) {
+    return true
+  } else {
+    return 'insert correct amount'
+  }
+
+
+
 };
 VendingMachine.prototype.addCoin = function (coin) {
   this.currentCoins.push(coin);
