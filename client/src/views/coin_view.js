@@ -7,7 +7,7 @@ const CoinView = function(){
 CoinView.prototype.bindEvents = function(){
     const fill = document.querySelector('.fill');
     const empties = document.querySelectorAll('.empty');
-    const vendingMachine = document.querySelector('.vending-machine')
+    const coinSlot = document.querySelector('.coin-slot')
     const counter = document.querySelector('.counter h1')
     let score = Number(counter.textContent)
   
@@ -15,11 +15,10 @@ CoinView.prototype.bindEvents = function(){
     fill.addEventListener('dragend', dragEnd);
 
 
-    vendingMachine.addEventListener('dragover', dragOver)
-    vendingMachine.addEventListener('drop', dragDrop)
+    coinSlot.addEventListener('dragover', dragOver)
+    coinSlot.addEventListener('drop', dragDrop)
 
-    function dragStart() {
-        console.log(this)
+    function dragStart(transparent) {
         this.className += ' hold';
         setTimeout(() => (this.className = 'invisible'), 0);
     }
@@ -35,7 +34,7 @@ CoinView.prototype.bindEvents = function(){
 
     function dragDrop() {
         console.log(this)
-        this.append(fill)
+        // this.append(fill)
         score += 1
         counter.textContent = score.toString()
 

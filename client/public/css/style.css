@@ -140,24 +140,16 @@ top: 4px;
 /* functionality  - drag drop*/
 
 .fill{
-    background-image: url('../images/dollar.png');
+    background-image: url('../images/pixDollar.png');
     position: relative;
-    height: 64px;
-    width: 64px;
+    height: 32px;
+    width: 32px;
     top: 5px;
     left: 5px;
     cursor: pointer;
 }
 
-.fillfive{
-    background-image: url('../images/dollar.png');
-    position: relative;
-    height: 64px;
-    width: 64px;
-    top: 5px;
-    left: 5px;
-    cursor: pointer;
-}
+
 
 .empty{
     display: inline-block;
@@ -165,6 +157,22 @@ top: 4px;
     width: 80px;
     background-color: #282F44;
 }
+
+.hold{
+  background-color: rgb(0, 0, 0);
+  opacity: 1;
+  border-radius: 26px;
+  -webkit-user-drag: element;
+}
+
+.hover{
+    background-color: burlywood;
+}
+
+.invisible{
+    display: none;
+}
+
 
 .vending-machine{
     height: 100%;
@@ -225,15 +233,22 @@ top: 4px;
   width: 64px;
 }
 
-.hold{
-    background-color: rgba(210, 105, 30, 0);
+.vendingItem8{
+  background-image: url(../images/cat.png);
+  height: 64px;
+  width: 58px;
 }
 
-.hover{
-    background-color: burlywood;
+.vendingItem9{
+  background-image: url(../images/coo.png);
+  height: 64px;
+  width: 64px;
 }
 
-.invisible{
-    display: none;
+.vendingItem10{
+  background-image: url(../images/boxer.png);
+  height: 64px;
+  width: 62px;
 }
+
 
