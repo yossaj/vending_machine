@@ -64,11 +64,13 @@ describe('VendingMachine', function () {
     const actual = vendingMachine.vendItem('b3')
     assert.deepStrictEqual(actual, 'item not found. please select another item')
   })
-  //
-  // it('should be able to return an items value', function () {
-  //
-  // })
-  //
+
+  it('should be able to return an items value', function () {
+    vendingMachine.items.push(item1);
+    const actual = vendingMachine.returnItemPrice('a7');
+    assert.deepStrictEqual(actual, 75)
+  })
+
   // it('should be able to vend item if correct amount is inserted', function () {
   //
   // })

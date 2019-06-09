@@ -10,8 +10,8 @@ VendingMachine.prototype.insertCoin = function (coin) {
   this.addCoinValue(coin);
 };
 
-VendingMachine.prototype.vendItem = function (inputCode) {
-  if (!this.itemExists(inputCode)) {
+VendingMachine.prototype.vendItem = function (itemCode) {
+  if (!this.itemExists(itemCode)) {
     return 'item not found. please select another item'
   }
 };
@@ -29,15 +29,20 @@ VendingMachine.prototype.returnCoins = function () {
   return coins;
 };
 
-VendingMachine.prototype.itemExists = function (inputCode) {
+VendingMachine.prototype.itemExists = function (itemCode) {
   for (const item of this.items) {
-    if (item.code === inputCode) {
+    if (item.code === itemCode) {
       return true
     }
   }
   return false
 };
 
-
-
+VendingMachine.prototype.returnItemPrice = function (itemCode) {
+  for (const item of this.items) {
+    if (item.code === itemCode) {
+      return item.price
+    }
+  }
+};
 module.exports = VendingMachine;
