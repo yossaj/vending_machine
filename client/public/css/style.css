@@ -66,6 +66,9 @@ body {
     grid-template-columns: 1fr;
  } */
 
+
+/* Buttons and balance display */
+
  #vendInput{
      display: grid;
      grid-template-rows: 1fr 2fr;
@@ -96,8 +99,43 @@ position: relative;
 top: 4px;
 }
 
+/* coins and coin slot */
 
-/* functionality  - drag dro*/
+.mainNav{
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+ }
+
+.coin-slot{
+   width:  90%;
+   height: 30px;
+   background-color: rgb(28, 33, 48);
+   border-radius: 8px;
+ }
+
+ .coin-slot-holder{
+   height: 60px;
+   background-color: #BA2C73;
+   border-radius: 8px;
+   margin: 30px;
+    /* border: 2px black solid; */
+    -webkit-box-shadow: 0px 2px 2px 2px rgba(61,4,61,1);
+    -moz-box-shadow: 0px 2px 2px 2px rgba(61,4,61,1);
+    box-shadow: 0px 2px 2px 2px rgba(61,4,61,1);
+ }
+
+ /* .coins-slot{
+   height: 40px;
+   background-color: #282F44;
+   border-radius: 16px;
+   
+ } */
+
+
+
+/* functionality  - drag drop*/
 
 .fill{
     background-image: url('../images/dollar.png');
