@@ -22,10 +22,8 @@ VendingMachine.prototype.vendItem = function (itemCode) {
   } else {
     return 'insert correct amount'
   }
-
-
-
 };
+
 VendingMachine.prototype.addCoin = function (coin) {
   this.currentCoins.push(coin);
 };
