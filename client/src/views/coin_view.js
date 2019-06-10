@@ -14,7 +14,6 @@ CoinView.prototype.bindEvents = function(){
     fill.addEventListener('dragstart', dragStart);
     fill.addEventListener('dragend', dragEnd);
 
-
     coinSlot.addEventListener('dragover', dragOver)
     coinSlot.addEventListener('drop', dragDrop)
 
@@ -27,17 +26,13 @@ CoinView.prototype.bindEvents = function(){
         this.className = 'fill';
     }
 
-
     function dragOver(nothing) {
         nothing.preventDefault()
     }
 
     function dragDrop() {
-        console.log(this)
-        // this.append(fill)
         score += 1
         counter.textContent = score.toString()
-
     }
 }
 
