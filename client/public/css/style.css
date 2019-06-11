@@ -166,9 +166,7 @@ top: 4px;
     width: 70px;
 }
 
-.coins{
 
-}
 
 .hold{
   /* background-color: rgb(0, 0, 0); */
@@ -203,6 +201,12 @@ top: 4px;
     justify-content: center;
 }
 
+.item-divide{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 5px;
+}
+
 .vendingItem1{
   background-image: url(../images/soft-drink.png);
   height: 64px;
@@ -216,9 +220,9 @@ top: 4px;
 }
 
 .vendingItem3{
-  background-image: url(../images/pizza.png);
+  background-image: url(../images/foxy.png);
   height: 64px;
-  width: 64px;
+  width: 60px;
 }
 
 .vendingItem4{
@@ -228,13 +232,13 @@ top: 4px;
 }
 
 .vendingItem5{
-  background-image: url(../images/present.png);
+  background-image: url(../images/cat.png);
   height: 64px;
-  width: 64px;
+  width: 58px;
 }
 
 .vendingItem6{
-  background-image: url(../images/trumpet.png);
+  background-image: url(../images/coo.png);
   height: 64px;
   width: 64px;
 }
@@ -246,13 +250,13 @@ top: 4px;
 }
 
 .vendingItem8{
-  background-image: url(../images/cat.png);
+  background-image: url(../images/present.png);
   height: 64px;
-  width: 58px;
+  width: 64px;
 }
 
 .vendingItem9{
-  background-image: url(../images/coo.png);
+  background-image: url(../images/trumpet.png);
   height: 64px;
   width: 64px;
 }
