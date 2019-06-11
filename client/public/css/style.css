@@ -73,7 +73,8 @@ body {
 
  #vendInput{
      display: grid;
-     grid-template-rows: 1fr 2fr;
+     grid-template-rows: 1fr;
+     grid-gap: 15px;
  }
 
  #grid {
