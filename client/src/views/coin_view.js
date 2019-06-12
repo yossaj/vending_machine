@@ -45,14 +45,15 @@ CoinView.prototype.dragAndDropcCoin = function(selectedcoin){
     }
 
     function dragDrop() {
+        let droppedCoin = {};
         if(selectedcoin == 'coin'){
-            console.log("Dollar")
+             droppedCoin = { type: 'dollar', value: 50 };
         }else if(selectedcoin == 'coin2'){
-            console.log('nickle');
-            
+             droppedCoin = { type: 'half dollar', value: 100 };
         }
         score += 1
         counter.textContent = score.toString()
+        PubSub.publish('CoinView: coin details ', droppedCoin)
     }
 };
 
