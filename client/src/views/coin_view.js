@@ -2,17 +2,31 @@ const PubSub = require("../helpers/pub_sub.js")
 
 const CoinView = function(){
 
-};
+};    
 
 CoinView.prototype.bindEvents = function(){
-    const fill = document.querySelector('.fill');
+    let coinListner = document.querySelector('#mainNav')
+    coinListner.addEventListener('mousedown', (evt)=>{
+        // console.log(evt.target.className);
+        let coin = evt.target.className
+        this.dragAndDropcCoin(coin)
+    })
+
+   
+    
+}
+
+CoinView.prototype.dragAndDropcCoin = function(selectedcoin){
+    console.log(selectedcoin);
+    
+    const coin = document.querySelector(`.${selectedcoin}`);
     const empties = document.querySelectorAll('.empty');
     const coinSlot = document.querySelector('.coin-slot')
     const counter = document.querySelector('.counter h1')
     let score = Number(counter.textContent)
-  
-    fill.addEventListener('dragstart', dragStart);
-    fill.addEventListener('dragend', dragEnd);
+
+    coin.addEventListener('dragstart', dragStart);
+    coin.addEventListener('dragend', dragEnd);
 
     coinSlot.addEventListener('dragover', dragOver)
     coinSlot.addEventListener('drop', dragDrop)
@@ -23,7 +37,7 @@ CoinView.prototype.bindEvents = function(){
     }
 
     function dragEnd() {
-        this.className = 'fill';
+        this.className = `${selectedcoin}`;
     }
 
     function dragOver(nothing) {
@@ -31,9 +45,15 @@ CoinView.prototype.bindEvents = function(){
     }
 
     function dragDrop() {
+        if(selectedcoin == 'coin'){
+            console.log("Dollar")
+        }else if(selectedcoin == 'coin2'){
+            console.log('nickle');
+            
+        }
         score += 1
         counter.textContent = score.toString()
     }
-}
+};
 
 module.exports = CoinView;

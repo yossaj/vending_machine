@@ -26,9 +26,7 @@ InputView.prototype.bindEvents = function(){
             secondNum.textContent = 0
             thirdNum.textContent = 0
         }
-            console.log(firstNum);
-            
-        //    PubSub.publish("InputView: Selected Item Value", (selectValue))
+        //    PubSub.publish("InputView: Selected Item Code", (selectValue))
         })
     }
 }
