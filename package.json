@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "build": "webpack -w",
-    "test": "mocha specs"
+    "test": "mocha client/src/specs"
   },
   "repository": {
     "type": "git",
