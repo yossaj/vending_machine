@@ -15,6 +15,7 @@ VendingMachine.prototype.vendItem = function (itemCode) {
   // functions will be added here as logic builds up
   while (!this.itemExists(itemCode)) {
     return 'item not found. please select another item'
+    // input code again 
   }
 
   if (this.itemExists(itemCode) && this.itemPriceMet(itemCode)) {
