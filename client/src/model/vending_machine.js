@@ -46,6 +46,10 @@ VendingMachine.prototype.addCoinValue = function (coin) {
   this.balance += coin.value;
 };
 
+VendingMachine.prototype.addCurrentCoinsToAllCoins = function () {
+  this.allCoins += this.currentCoins
+};
+
 VendingMachine.prototype.returnCoins = function () {
   const coins = this.currentCoins;
   this.currentCoins = [];
