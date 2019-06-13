@@ -12,5 +12,5 @@ document.addEventListener('DOMContentLoaded', () => {
     inputView.bindEvents();
 
     const data = new Data();
-    data.bindEvents()
+    data.bindEvents();
 });

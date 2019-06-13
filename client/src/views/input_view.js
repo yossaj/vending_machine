@@ -11,12 +11,12 @@ InputView.prototype.bindEvents = function(){
     const thirdNum = document.querySelector('#third-num')
     const enterButton = document.querySelector('#enter')
     const numGrid = document.querySelectorAll('.dialPad')
+    const message = document.querySelector('#message')
     let code = ""
 
     for (button of numGrid) {
         button.addEventListener('click', (evt) => {
             let selectString = evt.target.innerHTML
-
                 if(firstNum.textContent == 0){
                 firstNum.textContent = selectString;
                 code += selectString
@@ -31,12 +31,12 @@ InputView.prototype.bindEvents = function(){
                 secondNum.textContent = 0
                 thirdNum.textContent = 0
                 code = ""
-            }
-        //    
+            } 
         })
 
         enterButton.addEventListener('click', (evt)=>{
             if(code.length == 3){
+            message.textContent = "Please Wait..."
             PubSub.publish("InputView: Selected Item Code", (code))
             }
         })
@@ -44,6 +44,5 @@ InputView.prototype.bindEvents = function(){
 
     }
 }
-
 
 module.exports = InputView;
