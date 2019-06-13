@@ -11,10 +11,12 @@ describe('VendingMachine', function () {
     coin4 = {type: 'half dollar', value: 50};
     coin5 = {type: 'dollar', value: 50};
 
-    item1 = {code: 'a7', price: 75}
-    item2 = {code: 'f3', price: 50}
+    items = [
+      {code: '222', price: 75, url:'https://dog.ceo/api/breeds/image/random'},
+      {code: '666', price: 50, url:'https://www.hail-satan.com/'}
+    ]
 
-    vendingMachine = new VendingMachine ();
+    vendingMachine = new VendingMachine (items);
 
   })
 
@@ -48,50 +50,43 @@ describe('VendingMachine', function () {
   })
 
   it('should be able to check if an item exists __true', function () {
-    vendingMachine.items.push(item1);
-    const actual = vendingMachine.itemExists('a7');
+    const actual = vendingMachine.itemExists('222');
     assert.deepStrictEqual(actual, true)
   })
 
   it('should be able to check if an item exists __false', function () {
-    vendingMachine.items.push(item1);
     const actual = vendingMachine.itemExists('b2');
     assert.deepStrictEqual(actual, false)
   })
 
   it('should be able to return a messege informing the user that an item does not exist', function () {
-    vendingMachine.items.push(item1);
     const actual = vendingMachine.vendItem('b3')
     assert.deepStrictEqual(actual, 'item not found. please select another item')
   })
 
   it('should be able to return an items value', function () {
-    vendingMachine.items.push(item1);
-    const actual = vendingMachine.itemPrice('a7');
+    const actual = vendingMachine.itemPrice('222');
     assert.deepStrictEqual(actual, 75)
   })
 
   it('should be able to tell if the item price has been met __true', function () {
-    vendingMachine.items.push(item1);
     vendingMachine.insertCoin(coin4);
     vendingMachine.insertCoin(coin3);
-    const actual = vendingMachine.itemPriceMet('a7')
+    const actual = vendingMachine.itemPriceMet('222')
     assert.deepStrictEqual(actual, true)
   })
 
   it('should be able to tell if the item price has been met __false', function () {
-    vendingMachine.items.push(item1);
     vendingMachine.insertCoin(coin4);
-    const actual = vendingMachine.itemPriceMet('a7')
+    const actual = vendingMachine.itemPriceMet('222')
     assert.deepStrictEqual(actual, false)
   })
 
-  it('should be able to vend item if correct amount is inserted and item exists', function () {
-    vendingMachine.items.push(item1);
+  it('should be able to vend url if correct amount is inserted and item exists', function () {
     vendingMachine.insertCoin(coin4);
     vendingMachine.insertCoin(coin3);
-    const actual = vendingMachine.vendItem('a7')
-    assert.deepStrictEqual(actual, true)
+    const actual = vendingMachine.vendItem('222')
+    assert.deepStrictEqual(actual, 'https://dog.ceo/api/breeds/image/random')
   })
 
   it('should add current coins to all coins if vend is successful', function () {
