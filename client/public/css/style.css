@@ -120,11 +120,25 @@ top: 4px;
   top: 4px;
 }
 
-/* coins and coin slot */
+#input-display{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: rgb(28, 33, 48);
+  padding: 10px;
+  border-radius: 6px;
+}
 
-/* .mainNav{
+#message{
+  width: 120px;
+}
+
+
+
+/* coins and coin slot */
+/* 
+#mainNav{
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 1fr;
     grid-row-gap: 10px;
     grid-column-gap: 10px;
  } */
@@ -150,7 +164,6 @@ top: 4px;
  }
 
 /* functionality  - drag drop*/
-
 .coin{
     background-image: url('../images/coinsP.png');
     position: relative;
@@ -177,13 +190,8 @@ top: 4px;
     width: 70px;
 }
 
-
-
 .hold{
-  /* background-color: rgb(0, 0, 0); */
   opacity: 1;
-  /* border-radius: 26px;
-  -webkit-user-drag: element; */
 }
 
 .hover{
@@ -211,6 +219,8 @@ top: 4px;
     align-items: center;
     justify-content: center;
 }
+
+/* Vending Select Grid and Images */
 
 .item-divide{
   display: grid;
@@ -278,4 +288,4 @@ top: 4px;
   width: 62px;
 }
 
-
+/* footer - display view */

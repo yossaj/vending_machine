@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-
+        
             <div class="vendingdetails">
                 <div class = 'item-divide'>
                     <div class="vendingItem2"></div>
@@ -132,11 +132,15 @@
     </nav>
 
     <div id="vendInput">
+        <div id="input-display">
         <div class="counter">
-            <h1>0</h1>
+                <h1>0</h1>
+            </div>
+            <div class="scroll">
+                <marquee behavior="scroll" direction="left" id="message">Please insert coin...</marquee>
+            </div>
+            <div id="selected-nums"><h2 id="first-num">0</h2><h2 id="second-num">0</h2><h2 id="third-num">0</h2></div>
         </div>
-        <div id="selected-nums"><h2 id="first-num">0</h2><h2 id="second-num">0</h2><h2 id="third-num">0</h2></div>
-
         <div id="grid">
             <div class="dialPad">1</div>
             <div class="dialPad">2</div>
@@ -154,7 +158,12 @@
 
 
     <footer id="pageFooter">
-        <h1>Display Info</h1>
+        <div class="display">
+            <h1>Display Info</h1>
+        </div>
+
+       
+
     </footer>
 
 </body>

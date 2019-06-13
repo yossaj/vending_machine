@@ -10,10 +10,8 @@ CoinView.prototype.bindEvents = function(){
         // console.log(evt.target.className);
         let coin = evt.target.className
         this.dragAndDropcCoin(coin)
-    })
-
-   
-    
+        console.log
+    }) 
 }
 
 CoinView.prototype.dragAndDropcCoin = function(selectedcoin){
@@ -23,6 +21,7 @@ CoinView.prototype.dragAndDropcCoin = function(selectedcoin){
     const empties = document.querySelectorAll('.empty');
     const coinSlot = document.querySelector('.coin-slot-holder')
     const counter = document.querySelector('.counter h1')
+    const message = document.querySelector('#message')
     let score = Number(counter.textContent)
 
     coin.addEventListener('dragstart', dragStart);
@@ -52,9 +51,12 @@ CoinView.prototype.dragAndDropcCoin = function(selectedcoin){
              droppedCoin = { type: 'half dollar', value: 100 };
         }
         score += droppedCoin.value
+        if (score >= 150) {
+            message.textContent = "Please select an item..."
+        }
         counter.textContent = score.toString()
         PubSub.publish('CoinView: coin details ', droppedCoin)
     }
-};
+}
 
 module.exports = CoinView;
