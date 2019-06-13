@@ -98,6 +98,10 @@ describe('VendingMachine', function () {
   //
   // })
   //
+  // it('should reset the balance to 0 if vend is successful', function (){
+  //
+  // })
+  // 
   // it('should return appropriate change if change is needed', function () {
   //
   // })

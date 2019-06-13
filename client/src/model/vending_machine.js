@@ -1,9 +1,21 @@
 const VendingMachine = function () {
+  this.itemCode = 0;
   this.items = []
   this.allCoins = [];
   this.currentCoins = [];
   this.balance = 0;
   this.vendingState = 'item select'
+};
+
+VendingMachine.prototype.bindEvents = function () {
+  PubSub.subscribe('CoinView: coin details', (event) => {
+    const coin = event.detail;
+    this.insertCoin(coin);
+  })
+
+  PubSub.subscribe('InputView: Selected Item Code', (event) => {
+    this.itemCode = event.detail;
+  })
 };
 
 VendingMachine.prototype.insertCoin = function (coin) {
@@ -15,11 +27,12 @@ VendingMachine.prototype.vendItem = function (itemCode) {
   // functions will be added here as logic builds up
   while (!this.itemExists(itemCode)) {
     return 'item not found. please select another item'
-    // input code again 
+    // input code again
   }
 
   if (this.itemExists(itemCode) && this.itemPriceMet(itemCode)) {
     return true
+
   } else {
     return 'insert correct amount'
   }
