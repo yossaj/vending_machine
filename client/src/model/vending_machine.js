@@ -1,5 +1,6 @@
+const PubSub = require('../helpers/pub_sub.js');
+
 const VendingMachine = function () {
-  this.itemCode = 0;
   this.items = []
   this.allCoins = [];
   this.currentCoins = [];
@@ -14,7 +15,8 @@ VendingMachine.prototype.bindEvents = function () {
   })
 
   PubSub.subscribe('InputView: Selected Item Code', (event) => {
-    this.itemCode = event.detail;
+    const itemCode = event.detail;
+    this.vendItem(itemCode);
   })
 };
 
@@ -24,17 +26,21 @@ VendingMachine.prototype.insertCoin = function (coin) {
 };
 
 VendingMachine.prototype.vendItem = function (itemCode) {
-  // functions will be added here as logic builds up
   while (!this.itemExists(itemCode)) {
-    return 'item not found. please select another item'
-    // input code again
+    const itemNotFoundMessage = 'item not found. please select another item'
+    return itemNotFoundMessage
+    PubSub.publish('VendingMachine:display message', itemNotFoundMessage)
   }
 
   if (this.itemExists(itemCode) && this.itemPriceMet(itemCode)) {
     return true
-
+    this.addCurrentCoinsToAllCoins();
+    this.clearCurrentCoins();
+    this.clearBalance();
   } else {
-    return 'insert correct amount'
+    const insertCorrectAmountMessage = 'insert correct amount'
+    PubSub.publish('VendingMachine:display message', insertCorrectAmountMessage)
+
   }
 };
 
@@ -47,7 +53,15 @@ VendingMachine.prototype.addCoinValue = function (coin) {
 };
 
 VendingMachine.prototype.addCurrentCoinsToAllCoins = function () {
-  this.allCoins += this.currentCoins
+  this.allCoins = this.allCoins.concat(this.currentCoins);
+};
+
+VendingMachine.prototype.clearCurrentCoins = function () {
+  this.currentCoins = [];
+};
+
+VendingMachine.prototype.clearBalance = function () {
+  this.balance = 0;
 };
 
 VendingMachine.prototype.returnCoins = function () {
@@ -75,10 +89,7 @@ VendingMachine.prototype.itemPrice = function (itemCode) {
 
 VendingMachine.prototype.itemPriceMet = function (itemCode) {
   itemPrice = this.itemPrice(itemCode)
-  if (this.balance >= itemPrice) {
-    return true;
-  } else {
-    return false;
-  }
+  return (this.balance >= itemPrice)
 };
+
 module.exports = VendingMachine;

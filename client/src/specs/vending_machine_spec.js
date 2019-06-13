@@ -1,6 +1,6 @@
 const assert = require('assert');
 const VendingMachine = require('../model/vending_machine.js');
-
+const PubSub = require('../helpers/pub_sub.js')
 
 describe('VendingMachine', function () {
 
@@ -99,12 +99,24 @@ describe('VendingMachine', function () {
     vendingMachine.insertCoin(coin2);
     vendingMachine.addCurrentCoinsToAllCoins();
     const actual = vendingMachine.allCoins;
-    assert.equal(actual, [coin1, coin2]);
+    assert.deepStrictEqual(actual, [{type: 'nickel', value: 5}, {type: 'dime', value: 10}]);
   })
 
-  // it('should reset the balance to 0 if vend is successful', function (){
-  //
-  // })
+  it('can clear currentCoins', function () {
+    vendingMachine.insertCoin(coin1);
+    vendingMachine.insertCoin(coin2);
+    vendingMachine.clearCurrentCoins();
+    const actual = vendingMachine.currentCoins;
+    assert.deepStrictEqual(actual, [])
+  })
+
+  it('can clear balance', function (){
+    vendingMachine.insertCoin(coin1);
+    vendingMachine.insertCoin(coin2);
+    vendingMachine.clearBalance();
+    const actual = vendingMachine.balance;
+    assert.deepStrictEqual(actual, 0)
+  })
   //
   // it('should return appropriate change if change is needed', function () {
   //
