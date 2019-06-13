@@ -21,7 +21,7 @@ CoinView.prototype.dragAndDropcCoin = function(selectedcoin){
     
     const coin = document.querySelector(`.${selectedcoin}`);
     const empties = document.querySelectorAll('.empty');
-    const coinSlot = document.querySelector('.coin-slot')
+    const coinSlot = document.querySelector('.coin-slot-holder')
     const counter = document.querySelector('.counter h1')
     let score = Number(counter.textContent)
 
@@ -51,7 +51,7 @@ CoinView.prototype.dragAndDropcCoin = function(selectedcoin){
         }else if(selectedcoin == 'coin2'){
              droppedCoin = { type: 'half dollar', value: 100 };
         }
-        score += 1
+        score += droppedCoin.value
         counter.textContent = score.toString()
         PubSub.publish('CoinView: coin details ', droppedCoin)
     }

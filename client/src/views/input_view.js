@@ -9,25 +9,39 @@ InputView.prototype.bindEvents = function(){
     const firstNum = document.querySelector('#first-num')
     const secondNum = document.querySelector('#second-num')
     const thirdNum = document.querySelector('#third-num')
-
+    const enterButton = document.querySelector('#enter')
     const numGrid = document.querySelectorAll('.dialPad')
+    let code = ""
+
     for (button of numGrid) {
         button.addEventListener('click', (evt) => {
             let selectString = evt.target.innerHTML
 
-            if(firstNum.textContent == 0){
-            firstNum.textContent = selectString;
-        }else if(secondNum.textContent == 0){
-            secondNum.textContent = selectString
-        }else if(thirdNum.textContent == 0){
-            thirdNum.textContent = selectString
-        }else{
-            firstNum.textContent = 0
-            secondNum.textContent = 0
-            thirdNum.textContent = 0
-        }
-        //    PubSub.publish("InputView: Selected Item Code", (selectValue))
+                if(firstNum.textContent == 0){
+                firstNum.textContent = selectString;
+                code += selectString
+            }else if(secondNum.textContent == 0){
+                secondNum.textContent = selectString
+                code += selectString
+            }else if(thirdNum.textContent == 0){
+                thirdNum.textContent = selectString
+                code += selectString
+            }else{
+                firstNum.textContent = 0
+                secondNum.textContent = 0
+                thirdNum.textContent = 0
+                code = ""
+            }
+        //    
         })
+
+        enterButton.addEventListener('click', (evt)=>{
+            if(code.length == 3){
+            PubSub.publish("InputView: Selected Item Code", (code))
+            }
+        })
+    
+
     }
 }
 
