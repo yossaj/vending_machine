@@ -13,7 +13,6 @@ InputView.prototype.bindEvents = function(){
     const numGrid = document.querySelectorAll('.dialPad')
     const message = document.querySelector('#message')
     const counter = document.querySelector('.counter h1')
-    console.log(counter)
     let code = ""
     PubSub.subscribe( 'VendingMachine: balance', (evt)=>{
         console.log(evt.detail)

@@ -13,13 +13,13 @@ VendingMachine.prototype.bindEvents = function () {
     console.log('balance:',this.balance)
     let coin = event.detail;
     this.insertCoin(coin);
+    console.log(this.balance)
 
     PubSub.publish('VendingMachine: balance', this.balance);
   })
 
   PubSub.subscribe('InputView: Selected Item Code', (event) => {
     const itemCode = event.detail;
-    console.log(itemCode)
     this.vendItem(itemCode);
   })
 };
