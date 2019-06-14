@@ -39,7 +39,7 @@ VendingMachine.prototype.vendItem = function (itemCode) {
     console.log('balance after vend:', this.balance)
     const itemToVend = this.getItem(itemCode);
     // return itemUrl;
-    PubSub.publish('VendingMachine: itemUrl', itemToVend);
+    PubSub.publish('VendingMachine: item', itemToVend);
     PubSub.publish('VendingMachine: balance', this.balance);
   } else {
     const insertCorrectAmountMessage = 'insert correct amount'
