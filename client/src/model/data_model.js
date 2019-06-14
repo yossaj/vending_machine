@@ -14,7 +14,7 @@ Data.prototype.getData = function(apiURL){
     const request = new RequestHelper(apiURL)
     request.get()
         .then((data) => {
-            console.log(data)
+            // console.log(data)
         })
 
 }

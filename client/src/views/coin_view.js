@@ -10,7 +10,6 @@ CoinView.prototype.bindEvents = function(){
         // console.log(evt.target.className);
         let coin = evt.target.className
         this.dragAndDropcCoin(coin)
-        console.log
     }) 
 }
 
@@ -55,7 +54,9 @@ CoinView.prototype.dragAndDropcCoin = function(selectedcoin){
             message.textContent = "Please select an item..."
         }
         counter.textContent = score.toString()
-        PubSub.publish('CoinView: coin details ', droppedCoin)
+        PubSub.publish('CoinView: coin details', droppedCoin)
+
+
     }
 }
 

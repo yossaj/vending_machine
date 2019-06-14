@@ -13,6 +13,10 @@ InputView.prototype.bindEvents = function(){
     const numGrid = document.querySelectorAll('.dialPad')
     const message = document.querySelector('#message')
     let code = ""
+    PubSub.subscribe( 'VendingMachine: balance', (evt)=>{
+        debugger
+        console.log(evt)
+    })
 
     for (button of numGrid) {
         button.addEventListener('click', (evt) => {
@@ -36,9 +40,11 @@ InputView.prototype.bindEvents = function(){
 
         enterButton.addEventListener('click', (evt)=>{
             if(code.length == 3){
-            message.textContent = "Please Wait..."
+            // message.textContent = "Please Wait..."
             PubSub.publish("InputView: Selected Item Code", (code))
             }
+
+            
         })
     
 
