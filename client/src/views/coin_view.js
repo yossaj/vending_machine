@@ -44,9 +44,9 @@ CoinView.prototype.dragAndDropcCoin = function(selectedcoin){
     function dragDrop() {
         let droppedCoin = {};
         if(selectedcoin == 'coin'){
-             droppedCoin = { type: 'dollar', value: 50 };
+             droppedCoin = { type: 'dollar', value: 100 };
         }else if(selectedcoin == 'coin2'){
-             droppedCoin = { type: 'half dollar', value: 100 };
+             droppedCoin = { type: 'half dollar', value: 50 };
         }
         score += droppedCoin.value
         if (score >= 150) {
@@ -54,8 +54,6 @@ CoinView.prototype.dragAndDropcCoin = function(selectedcoin){
         }
         // counter.textContent = score.toString()
         PubSub.publish('CoinView: coin details', droppedCoin)
-        console.log('dragdrop:', droppedCoin)
-
     }
 }
 

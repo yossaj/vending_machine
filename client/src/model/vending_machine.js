@@ -10,12 +10,12 @@ const VendingMachine = function (items) {
 
 VendingMachine.prototype.bindEvents = function () {
   PubSub.subscribe('CoinView: coin details', (event) => {
-    console.log(this.balance)
+    console.log('balance:',this.balance)
     let coin = event.detail;
-    console.log(coin)
+    // console.log(coin)
 
     this.insertCoin(coin);
-    console.log(this.balance)
+    // console.log(this.balance)
 
     PubSub.publish('VendingMachine: balance', this.balance);
   })
