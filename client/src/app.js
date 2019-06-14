@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const apiDisplayView = new ApiDisplayView();
     apiDisplayView.bindEvents();
 
-    const vendingMachine = new VendingMachine()
+    items = [
+      {code: '222', price: 75, url:'https://dog.ceo/api/breeds/image/random'},
+      {code: '666', price: 50, url:'https://www.hail-satan.com/'}
+    ]
+    const vendingMachine = new VendingMachine(items)
     vendingMachine.bindEvents();
 });

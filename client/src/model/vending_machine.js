@@ -12,8 +12,6 @@ VendingMachine.prototype.bindEvents = function () {
   PubSub.subscribe('CoinView: coin details', (event) => {
     console.log('balance:',this.balance)
     let coin = event.detail;
-    // console.log(coin)
-
     this.insertCoin(coin);
     console.log(this.balance)
 
@@ -27,36 +25,37 @@ VendingMachine.prototype.bindEvents = function () {
 };
 
 VendingMachine.prototype.vendItem = function (itemCode) {
-  while (!this.itemExists(itemCode)) {
-    const itemNotFoundMessage = 'item not found. please select another item'
-    return itemNotFoundMessage;
-    PubSub.publish('VendingMachine:display message', itemNotFoundMessage)
-  }
+  console.log('itemExists:', this.itemExists(itemCode))
+  if (!this.itemExists(itemCode)){
 
-  if (this.itemExists(itemCode) && this.itemPriceMet(itemCode)) {
+    const itemNotFoundMessage = 'item not found. please select another item'
+    // return itemNotFoundMessage;
+    console.log(itemNotFoundMessage)
+    PubSub.publish('VendingMachine:display message', itemNotFoundMessage)
+  } else if (this.itemExists(itemCode) && this.itemPriceMet(itemCode)) {
     this.addCurrentCoinsToAllCoins();
     this.clearCurrentCoins();
     this.clearBalance();
-
-    const itemUrl = this.getItem(itemCode).url;
-    return itemUrl;
-    PubSub.publish('VendingMachine: itemUrl', itemUrl);
+    console.log('balance after vend:', this.balance)
+    const itemToVend = this.getItem(itemCode);
+    // return itemUrl;
+    PubSub.publish('VendingMachine: item', itemToVend);
     PubSub.publish('VendingMachine: balance', this.balance);
   } else {
     const insertCorrectAmountMessage = 'insert correct amount'
     PubSub.publish('VendingMachine:display message', insertCorrectAmountMessage)
-
+    console.log(insertCorrectAmountMessage)
   }
 };
 
 VendingMachine.prototype.insertCoin = function (coin) {
-  // this.addCoin(coin);
+  this.addCoin(coin);
   this.addCoinValue(coin);
 };
 
-// VendingMachine.prototype.addCoin = function (coin) {
-//   this.currentCoins.push(coin);
-// };
+VendingMachine.prototype.addCoin = function (coin) {
+  this.currentCoins.push(coin);
+};
 
 VendingMachine.prototype.addCoinValue = function (coin) {
   this.balance += coin.value;
