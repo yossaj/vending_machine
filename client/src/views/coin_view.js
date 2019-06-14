@@ -47,16 +47,20 @@ CoinView.prototype.dragAndDropcCoin = function(selectedcoin){
     function dragDrop() {
         let droppedCoin = {};
         if(selectedcoin == 'coin'){
-             droppedCoin = { type: 'dollar', value: 50 };
+             droppedCoin = { type: 'dollar', value: 100 };
         }else if(selectedcoin == 'coin2'){
-             droppedCoin = { type: 'half dollar', value: 100 };
+             droppedCoin = { type: 'half dollar', value: 50 };
         }
         score += droppedCoin.value
         if (score >= 150) {
             message.textContent = "Please select an item..."
         }
         // counter.textContent = score.toString()
+<<<<<<< HEAD
         PubSub.publish('CoinView: coin details ', droppedCoin)
+=======
+        PubSub.publish('CoinView: coin details', droppedCoin)
+>>>>>>> 21d6c771140196ae444023f90d02c15f3735a5b6
     }
 }
 
