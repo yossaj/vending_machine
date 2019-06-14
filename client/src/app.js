@@ -2,6 +2,7 @@ const CoinView = require("./views/coin_view.js")
 const InputView = require("./views/input_view.js")
 const Data = require("./model/data_model.js")
 const VendingMachine = require('./model/vending_machine.js')
+const ApiDisplayView = require("./views/api_display_view.js")
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('javascript loaded');
@@ -14,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const data = new Data();
     data.bindEvents();
+
+    const apiDisplayView = new ApiDisplayView();
+    apiDisplayView.bindEvents();
 
     const vendingMachine = new VendingMachine()
     vendingMachine.bindEvents();
