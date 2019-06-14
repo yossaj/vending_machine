@@ -33,6 +33,12 @@ ApiDisplayView.prototype.preRender = function (vended, display) {
     vended.style.display = 'inherit'
 }
 
+ApiDisplayView.prototype.postRender = function(vended,display){
+    display.style.display = 'grid'
+    vended.innerHTML = ""
+    vended.style.display = 'none'
+}
+
 ApiDisplayView.prototype.renderDog = function(url){
         const display = document.querySelector('.vending-machine')
         const vended = document.querySelector('.vended-item')
@@ -53,7 +59,7 @@ ApiDisplayView.prototype.renderSwanson = function(quote){
     wordSwanson.textContent = quote
     vended.append(iconSwanson);
     vended.append(wordSwanson);
-
+    setTimeout(()=> this.postRender(vended,display),5000)
 } 
     
 
