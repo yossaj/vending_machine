@@ -45,7 +45,7 @@ VendingMachine.prototype.vendItem = function (itemCode) {
   } else {
     const insertCorrectAmountMessage = 'Please Insert correct amount'
     PubSub.publish('VendingMachine:display message', insertCorrectAmountMessage)
-    console.log(insertCorrectAmountMessage)
+    // console.log(insertCorrectAmountMessage)
   }
 };
 

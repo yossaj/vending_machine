@@ -6,18 +6,22 @@ const Data = function(){
 }
 
 Data.prototype.bindEvents = function(){
- 
-    let apiURL = 'https://dog.ceo/api/breeds/image/random'
-    let selectcode = '222'
-    this.getData(apiURL, selectcode)
+
+    PubSub.subscribe('VendingMachine: item', (evt)=>{
+        
+        this.getData(evt.detail)
+    })
+    
 }
 
-Data.prototype.getData = function(apiURL, selectcode){
+Data.prototype.getData = function(package){
+    apiURL = package.url;
     const request = new RequestHelper(apiURL)
     request.get()
         .then((data) => {
-            PubSub.publish('Data: Api data', data )
-            console.log(data)
+            // console.log(data)
+            package.data = data
+            PubSub.publish('Data: Api data', package )
         })
 
 }

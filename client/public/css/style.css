@@ -208,9 +208,13 @@ top: 4px;
 }
 
 .vended-item img{
-   border-radius: 32px;
-   max-width: 80%;
-   max-height: 80%;
+   border-radius: 10px;
+   max-width: 90%;
+   max-height: 90%;
+}
+
+.vended-item h2{
+  margin: 1rem;
 }
 
 .vending-machine{
