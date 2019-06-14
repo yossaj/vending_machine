@@ -21,16 +21,16 @@ ApiDisplayView.prototype.bindEvents = function(){
 }
 
 ApiDisplayView.prototype.render = function(url){
-console.log('I exist')
 
     PubSub.subscribe('VendingMachine: item', (evt) => {
-        console.log('This is line 26 display:', evt);
-
         const display = document.querySelector('.vending-machine')
         display.style.display = 'none'
         const vended = document.querySelector('.vended-item')
+        const apiImage = document.createElement('img')
+        console.log(url);
+        apiImage.src = url
+        vended.append(apiImage)
         vended.style.display = 'inherit'
-
     })
    
    
