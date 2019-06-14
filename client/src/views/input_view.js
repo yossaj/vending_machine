@@ -19,6 +19,10 @@ InputView.prototype.bindEvents = function(){
         counter.textContent = evt.detail
     })
 
+    PubSub.subscribe('VendingMachine:display message', (evt)=>{
+      message.textContent = evt.detail
+    })
+
     for (button of numGrid) {
       button.addEventListener('click', (evt) => {
         let selectString = evt.target.innerHTML

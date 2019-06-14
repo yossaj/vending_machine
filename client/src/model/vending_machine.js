@@ -28,7 +28,7 @@ VendingMachine.prototype.vendItem = function (itemCode) {
   console.log('itemExists:', this.itemExists(itemCode))
   if (!this.itemExists(itemCode)){
 
-    const itemNotFoundMessage = 'item not found. please select another item'
+    const itemNotFoundMessage = 'Item not found. Please select another item'
     // return itemNotFoundMessage;
     console.log(itemNotFoundMessage)
     PubSub.publish('VendingMachine:display message', itemNotFoundMessage)
@@ -41,8 +41,9 @@ VendingMachine.prototype.vendItem = function (itemCode) {
     // return itemUrl;
     PubSub.publish('VendingMachine: item', itemToVend);
     PubSub.publish('VendingMachine: balance', this.balance);
+    PubSub.publish('VendingMachine:display message', 'Please insert coin...')
   } else {
-    const insertCorrectAmountMessage = 'insert correct amount'
+    const insertCorrectAmountMessage = 'Please Insert correct amount'
     PubSub.publish('VendingMachine:display message', insertCorrectAmountMessage)
     console.log(insertCorrectAmountMessage)
   }
