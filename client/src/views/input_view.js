@@ -12,10 +12,12 @@ InputView.prototype.bindEvents = function(){
     const enterButton = document.querySelector('#enter')
     const numGrid = document.querySelectorAll('.dialPad')
     const message = document.querySelector('#message')
+    const counter = document.querySelector('.counter h1')
+    console.log(counter)
     let code = ""
     PubSub.subscribe( 'VendingMachine: balance', (evt)=>{
-        debugger
-        console.log(evt)
+        console.log(evt.detail)
+        counter.textContent = evt.detail
     })
 
     for (button of numGrid) {
@@ -35,7 +37,7 @@ InputView.prototype.bindEvents = function(){
                 secondNum.textContent = 0
                 thirdNum.textContent = 0
                 code = ""
-            } 
+            }
         })
 
         enterButton.addEventListener('click', (evt)=>{
@@ -44,9 +46,9 @@ InputView.prototype.bindEvents = function(){
             PubSub.publish("InputView: Selected Item Code", (code))
             }
 
-            
+
         })
-    
+
 
     }
 }

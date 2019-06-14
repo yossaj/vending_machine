@@ -10,15 +10,20 @@ const VendingMachine = function (items) {
 
 VendingMachine.prototype.bindEvents = function () {
   PubSub.subscribe('CoinView: coin details', (event) => {
-    const coin = event.detail;
+    console.log(this.balance)
+    let coin = event.detail;
+    console.log(coin)
+
     this.insertCoin(coin);
-    PubSub.publish('CoinView: balance', this.balance);
+    console.log(this.balance)
+
+    PubSub.publish('VendingMachine: balance', this.balance);
   })
 
-  PubSub.subscribe('InputView: Selected Item Code', (event) => {
-    const itemCode = event.detail;
-    this.vendItem(itemCode);
-  })
+  // PubSub.subscribe('InputView: Selected Item Code', (event) => {
+  //   const itemCode = event.detail;
+  //   this.vendItem(itemCode);
+  // })
 };
 
 VendingMachine.prototype.vendItem = function (itemCode) {
@@ -45,13 +50,13 @@ VendingMachine.prototype.vendItem = function (itemCode) {
 };
 
 VendingMachine.prototype.insertCoin = function (coin) {
-  this.addCoin(coin);
+  // this.addCoin(coin);
   this.addCoinValue(coin);
 };
 
-VendingMachine.prototype.addCoin = function (coin) {
-  this.currentCoins.push(coin);
-};
+// VendingMachine.prototype.addCoin = function (coin) {
+//   this.currentCoins.push(coin);
+// };
 
 VendingMachine.prototype.addCoinValue = function (coin) {
   this.balance += coin.value;
