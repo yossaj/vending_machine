@@ -15,15 +15,15 @@ VendingMachine.prototype.bindEvents = function () {
     // console.log(coin)
 
     this.insertCoin(coin);
-    // console.log(this.balance)
+    console.log(this.balance)
 
     PubSub.publish('VendingMachine: balance', this.balance);
   })
 
-  // PubSub.subscribe('InputView: Selected Item Code', (event) => {
-  //   const itemCode = event.detail;
-  //   this.vendItem(itemCode);
-  // })
+  PubSub.subscribe('InputView: Selected Item Code', (event) => {
+    const itemCode = event.detail;
+    this.vendItem(itemCode);
+  })
 };
 
 VendingMachine.prototype.vendItem = function (itemCode) {
