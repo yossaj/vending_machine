@@ -15,7 +15,7 @@ InputView.prototype.bindEvents = function(){
     const counter = document.querySelector('.counter h1')
     let code = ""
     PubSub.subscribe( 'VendingMachine: balance', (evt)=>{
-        console.log(evt.detail)
+        // console.log(evt.detail)
         counter.textContent = evt.detail
     })
 

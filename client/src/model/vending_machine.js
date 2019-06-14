@@ -30,13 +30,13 @@ VendingMachine.prototype.vendItem = function (itemCode) {
 
     const itemNotFoundMessage = 'Item not found. Please select another item'
     // return itemNotFoundMessage;
-    console.log(itemNotFoundMessage)
+    // console.log(itemNotFoundMessage)
     PubSub.publish('VendingMachine:display message', itemNotFoundMessage)
   } else if (this.itemExists(itemCode) && this.itemPriceMet(itemCode)) {
     this.addCurrentCoinsToAllCoins();
     this.clearCurrentCoins();
     this.clearBalance();
-    console.log('balance after vend:', this.balance)
+    // console.log('balance after vend:', this.balance)
     const itemToVend = this.getItem(itemCode);
     // return itemUrl;
     PubSub.publish('VendingMachine: item', itemToVend);
