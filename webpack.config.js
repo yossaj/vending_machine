@@ -1,8 +1,9 @@
 const config = {
-    entry: `${__dirname}/client/src/app.js`,
+    entry: `${__dirname}/src/app.js`,
     output: {
-        path: `${__dirname}/client/public/js`,
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        path: `${__dirname}/public/js`
+        
     },
     mode: 'development'
 };
