@@ -211,6 +211,7 @@ top: 4px;
    border-radius: 10px;
    max-width: 90%;
    max-height: 90%;
+   cursor: pointer;
 }
 
 .vended-item h2{
@@ -289,15 +290,19 @@ top: 4px;
 }
 
 .vendingItem9{
-  background-image: url(../images/trumpet.png);
+  background-image: url(../images/doggo.png);
   height: 64px;
-  width: 64px;
+  width: 66px;
 }
 
 .vendingItem10{
   background-image: url(../images/boxer.png);
   height: 64px;
   width: 62px;
+}
+
+.out-of-stock{
+  filter: grayscale(100%)
 }
 
 /* footer - display view */

@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     apiDisplayView.bindEvents();
 
     items = [
-      {code: '222', price: 75, url:'https://dog.ceo/api/breeds/image/random'},
+      {code: '223', price: 75, url:'https://dog.ceo/api/breeds/image/random'},
       {code: '666', price: 50, url:'https://www.hail-satan.com/'},
       { code: '555', price: 50, url:`https://ron-swanson-quotes.herokuapp.com/v2/quotes`},
       { code: '999', price: 50, url:`https://api.adviceslip.com/advice`},
-      { code: '333', price: 50, url:`https://corporatebs-generator.sameerkumar.website/`}
+      { code: '777', price: 50, url:`https://corporatebs-generator.sameerkumar.website/`}
       
     ]
     const vendingMachine = new VendingMachine(items)
