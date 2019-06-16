@@ -10,4 +10,4 @@ app.use(express.static('client/public'));
 //     res.sendFile(path.resolve(__dirname, 'client/public/index.html'));
 // });
 
-app.listen(port);
+server.listen(process.env.PORT || port)
