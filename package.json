@@ -2,7 +2,7 @@
   "name": "vendingmachine",
   "version": "1.0.0",
   "description": "Vending Machine",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "build": "webpack",
     "test": "mocha client/src/specs"
