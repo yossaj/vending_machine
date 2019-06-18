@@ -4,7 +4,7 @@
   "description": "Vending Machine",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack -w",
     "start": "node server.js",
     "test": "mocha client/src/specs"
   },

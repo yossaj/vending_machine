@@ -14,18 +14,22 @@ ApiDisplayView.prototype.bindEvents = function(){
 ApiDisplayView.prototype.render = function(package){
     const display = document.querySelector('.vending-machine')
     const vended = document.querySelector('.vended-item')
+    const displayMessage = document.querySelector('.display h1')
+
     let code = package.code
 
     if (code == 223) {
     let url = package.data.message
-        this.renderDog(url, vended, display)
+        this.renderDog(url, vended, display, displayMessage)
     } else if (code == 777) {
+        displayMessage.textContent = "Corprate Bullshit Generator API"
         this.textRender(package.data.phrase, vended, display)
     }
     else if (code == 555) {
-        this.renderSwanson(package.data[0], vended, display)
+        this.renderSwanson(package.data[0], vended, display, displayMessage)
     }else if(code == 999){
-        this.textRender(package.data.slip.advice, vended, display)
+        displayMessage.textContent = "Daily Advice"
+        this.textRender(package.data.slip.advice, vended, display, displayMessage)
     }
 }
 
@@ -41,20 +45,21 @@ ApiDisplayView.prototype.postRender = function(vended,display){
     vended.style.display = 'none'
 }
 
-ApiDisplayView.prototype.renderDog = function(url, vended, display){
+ApiDisplayView.prototype.renderDog = function (url, vended, display, displayMessage){
         this.preRender(vended, display)
         const apiImage = document.createElement('img')
-        console.log(url);
         apiImage.src = url
         vended.append(apiImage) 
+        displayMessage.textContent = "Dog CEO Api"
         apiImage.addEventListener
         this.close(apiImage, vended, display)     
 }
 
-ApiDisplayView.prototype.renderSwanson = function(quote, vended, display){
+ApiDisplayView.prototype.renderSwanson = function(quote, vended, display, displayMessage){
     this.preRender(vended, display)
     const iconSwanson = document.createElement('img')
     iconSwanson.src = "http://pixeljoint.com/files/icons/img_0004.png"
+    displayMessage.textContent = "Ron Swanson Quotes"
     const wordSwanson = document.createElement('h2')
     wordSwanson.textContent = quote
     vended.append(iconSwanson);
