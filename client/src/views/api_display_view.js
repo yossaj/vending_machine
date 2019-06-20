@@ -8,6 +8,7 @@ const ApiDisplayView = function(){
 ApiDisplayView.prototype.bindEvents = function(){
     PubSub.subscribe('Data: Api data', (evt)=>{
         this.render(evt.detail )
+        console.log(evt.detail)
     });
 }
 
@@ -19,14 +20,18 @@ ApiDisplayView.prototype.render = function(package){
     let code = package.code
 
     if (code == 223) {
-    let url = package.data.message
-        this.renderDog(url, vended, display, displayMessage)
+        let message = "Dog CEO Api"
+        let url = package.data.message
+        this.renderPic(url, vended, display, displayMessage, message )
     } else if (code == 777) {
         displayMessage.textContent = "Corprate Bullshit Generator API"
         this.textRender(package.data.phrase, vended, display)
     }
     else if (code == 555) {
         this.renderSwanson(package.data[0], vended, display, displayMessage)
+    }else if(code == 666){
+        let message = "Cat API"
+        this.renderPic(package.data[0].url, vended, display, displayMessage, message)
     }else if(code == 999){
         displayMessage.textContent = "Daily Advice"
         this.textRender(package.data.slip.advice, vended, display, displayMessage)
@@ -45,14 +50,14 @@ ApiDisplayView.prototype.postRender = function(vended,display){
     vended.style.display = 'none'
 }
 
-ApiDisplayView.prototype.renderDog = function (url, vended, display, displayMessage){
+ApiDisplayView.prototype.renderPic = function (url, vended, display, displayMessage, message){
         this.preRender(vended, display)
         const apiImage = document.createElement('img')
         apiImage.src = url
         vended.append(apiImage) 
-        displayMessage.textContent = "Dog CEO Api"
+        displayMessage.textContent = message
         apiImage.addEventListener
-        this.close(apiImage, vended, display)     
+        this.close(apiImage, vended, display, displayMessage)     
 }
 
 ApiDisplayView.prototype.renderSwanson = function(quote, vended, display, displayMessage){
@@ -67,9 +72,10 @@ ApiDisplayView.prototype.renderSwanson = function(quote, vended, display, displa
     setTimeout(()=> this.postRender(vended,display),5000)
 } 
 
-ApiDisplayView.prototype.close = function(apiAsset, vended, display){
+ApiDisplayView.prototype.close = function(apiAsset, vended, display, displayMessage){
     apiAsset.addEventListener('dblclick', (evnt)=>{
         this.postRender(vended, display)
+        displayMessage.textContent = "Choose Another"
     })
 }
 
